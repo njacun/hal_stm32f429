@@ -95,9 +95,21 @@ void print_string(uint8_t s[len_buffer])
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 {
-	//print_string(UartHandle -> pTxBuffPtr);
+	if(HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_14) == GPIO_PIN_SET)
+	{		
+		HAL_GPIO_WritePin(GPIOG, GPIO_PIN_14, GPIO_PIN_RESET);
+	}	
+	
 	print_string(buffer);
-	//UartHandle -> RxState = HAL_UART_STATE_BUSY_RX;
+	memset(buffer,0,len_buffer);
+	
+	HAL_UART_Receive_IT(UartHandle, buffer, len_receive);
+}
+
+ void HAL_UART_ErrorCallback(UART_HandleTypeDef *UartHandle)
+{
+	HAL_GPIO_WritePin(GPIOG, GPIO_PIN_14, GPIO_PIN_SET);
+	memset(buffer,0,len_buffer);
 	
 	HAL_UART_Receive_IT(UartHandle, buffer, len_receive);
 }
