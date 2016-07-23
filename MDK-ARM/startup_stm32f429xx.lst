@@ -905,17 +905,17 @@ ARM Macro Assembler    Page 14
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=sample\startup_stm32f429xx.d -osample\startup_stm32f429xx.o -ID
-:\учеба\практика\hal_stm32f429\MDK-ARM\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.
-0-Beta4\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CM
-SIS\Device\ST\STM32F4xx\Include --predefine="__MICROLIB SETA 1" --predefine="__
+:\учеба\практика\git\hal_stm32f429\MDK-ARM\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\
+5.0.0-Beta4\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Driver
+s\CMSIS\Device\ST\STM32F4xx\Include --predefine="__MICROLIB SETA 1" --predefine
 
 
 
 ARM Macro Assembler    Page 15 
 
 
-UVISION_VERSION SETA 520" --predefine="_RTE_ SETA 1" --predefine="STM32F429xx S
-ETA 1" --list=startup_stm32f429xx.lst startup_stm32f429xx.s
+="__UVISION_VERSION SETA 520" --predefine="_RTE_ SETA 1" --predefine="STM32F429
+xx SETA 1" --list=startup_stm32f429xx.lst startup_stm32f429xx.s
 
 
 

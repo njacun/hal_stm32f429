@@ -635,14 +635,14 @@ void BSP_LCD_DisplayStringAt(uint16_t X, uint16_t Y, uint8_t *pText, Text_AlignM
     {
       refcolumn = X;
       break;
-    }
+    } 
   case RIGHT_MODE:
     {
       refcolumn = X + ((xsize - size)*DrawProp[ActiveLayer].pFont->Width);
       break;
     }
   default:
-    {
+    { 
       refcolumn = X;
       break;
     }

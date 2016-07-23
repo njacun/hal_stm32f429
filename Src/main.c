@@ -57,6 +57,7 @@ uint16_t max_line = 25;
 uint16_t current_line = 2;
 const uint8_t len_receive = 8;
 const uint8_t len_buffer = 100;
+uint8_t buffer[len_buffer];
 
 /* USER CODE END PV */
 
@@ -91,6 +92,15 @@ void print_string(uint8_t s[len_buffer])
 		}
 	}
 }
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
+{
+	//print_string(UartHandle -> pTxBuffPtr);
+	print_string(buffer);
+	//UartHandle -> RxState = HAL_UART_STATE_BUSY_RX;
+	
+	HAL_UART_Receive_IT(UartHandle, buffer, len_receive);
+}
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -122,8 +132,8 @@ int main(void)
   MX_SPI5_Init();
 
   /* USER CODE BEGIN 2 */	
-	uint8_t buffer[len_buffer];
-	memset(buffer,0,len_buffer);
+	
+	//memset(buffer,0,len_buffer);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */	
@@ -145,12 +155,12 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */	
-		if(huart1.RxXferCount == 0)
+		/*if(huart1.RxXferCount == 0)
 		{			
 			print_string(buffer);			
 			memset(buffer,0,len_buffer);
 			HAL_UART_Receive_IT(&huart1, buffer, len_receive);
-		}		
+		}		*/
   }
   /* USER CODE END 3 */
 }
